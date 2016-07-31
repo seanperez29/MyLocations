@@ -65,7 +65,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Get My Location"/>
                                 <connections>
-                                    <action selector="getLocation" destination="9pv-A4-QxB" eventType="touchUpInside" id="u5Z-fQ-ZHE"/>
+                                    <action selector="getLocation" destination="9pv-A4-QxB" eventType="touchUpInside" id="OQt-6n-qe4"/>
                                 </connections>
                             </button>
                         </subviews>
