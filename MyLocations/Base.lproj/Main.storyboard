@@ -295,7 +295,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qfh-0U-YxQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1277" y="-303"/>
+            <point key="canvasLocation" x="1489" y="-33"/>
         </scene>
         <!--Category Picker View Controller-->
         <scene sceneID="Dac-hu-rkH">
@@ -337,7 +337,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BTI-bR-99X" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="3IQ-vM-rHa" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1667" y="-303"/>
+            <point key="canvasLocation" x="1913" y="-33"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -356,7 +356,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="0.0" y="0.0"/>
+            <point key="canvasLocation" x="-262" y="2"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="baF-KC-DFv">
@@ -374,7 +374,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UP2-N5-F2z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="843" y="-303"/>
+            <point key="canvasLocation" x="1075" y="-33"/>
         </scene>
         <!--Locations-->
         <scene sceneID="IaW-vb-D80">
@@ -396,14 +396,14 @@
                                             <rect key="frame" x="8" y="8" width="304" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bmz-Op-8nW">
                                             <rect key="frame" x="8" y="27" width="304" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -411,6 +411,7 @@
                                 <connections>
                                     <outlet property="addressLabel" destination="bmz-Op-8nW" id="jd7-ye-Kqy"/>
                                     <outlet property="descriptionLabel" destination="CgF-2p-K5T" id="AUp-LY-DNt"/>
+                                    <segue destination="v4M-od-X8c" kind="modal" identifier="EditLocation" id="rWJ-2d-Scb"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -423,7 +424,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pWZ-xZ-Xw9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="940" y="348"/>
+            <point key="canvasLocation" x="580" y="348"/>
         </scene>
         <!--Locations-->
         <scene sceneID="YJ7-rT-VNn">
@@ -440,10 +441,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q1Y-7D-Kuh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="400" y="348"/>
+            <point key="canvasLocation" x="202" y="348"/>
         </scene>
     </scenes>
     <resources>
         <image name="first" width="30" height="30"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="rWJ-2d-Scb"/>
+    </inferredMetricsTieBreakers>
 </document>
