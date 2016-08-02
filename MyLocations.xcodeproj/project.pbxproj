@@ -14,6 +14,7 @@
 		91F5AD351D49E0C000D94B3F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91F5AD331D49E0C000D94B3F /* Main.storyboard */; };
 		91F5AD371D49E0C000D94B3F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91F5AD361D49E0C000D94B3F /* Assets.xcassets */; };
 		91F5AD3A1D49E0C000D94B3F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91F5AD381D49E0C000D94B3F /* LaunchScreen.storyboard */; };
+		91F8050F1D50500700C2A15B /* LocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F8050E1D50500700C2A15B /* LocationsViewController.swift */; };
 		91FDB01C1D4EF98200053AA8 /* HudView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FDB01B1D4EF98200053AA8 /* HudView.swift */; };
 		91FDB01E1D4F098000053AA8 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FDB01D1D4F098000053AA8 /* Functions.swift */; };
 		91FDB0211D4F1F6200053AA8 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 91FDB01F1D4F1F6200053AA8 /* DataModel.xcdatamodeld */; };
@@ -31,6 +32,7 @@
 		91F5AD361D49E0C000D94B3F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		91F5AD391D49E0C000D94B3F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		91F5AD3B1D49E0C000D94B3F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		91F8050E1D50500700C2A15B /* LocationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationsViewController.swift; sourceTree = "<group>"; };
 		91FDB01B1D4EF98200053AA8 /* HudView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HudView.swift; sourceTree = "<group>"; };
 		91FDB01D1D4F098000053AA8 /* Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		91FDB0201D4F1F6200053AA8 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 				91FDB01B1D4EF98200053AA8 /* HudView.swift */,
 				91FDB01D1D4F098000053AA8 /* Functions.swift */,
 				91FDB01F1D4F1F6200053AA8 /* DataModel.xcdatamodeld */,
+				91F8050E1D50500700C2A15B /* LocationsViewController.swift */,
 			);
 			path = MyLocations;
 			sourceTree = "<group>";
@@ -158,6 +161,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				91FDB0241D4F22B900053AA8 /* Location+CoreDataProperties.swift in Sources */,
+				91F8050F1D50500700C2A15B /* LocationsViewController.swift in Sources */,
 				91F5AD321D49E0C000D94B3F /* CategoryPickerViewController.swift in Sources */,
 				91FDB01C1D4EF98200053AA8 /* HudView.swift in Sources */,
 				91F5AD2E1D49E0C000D94B3F /* AppDelegate.swift in Sources */,
