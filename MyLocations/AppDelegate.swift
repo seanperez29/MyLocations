@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     lazy var managedObjectContext: NSManagedObjectContext = {
         guard let modelURL = NSBundle.mainBundle().URLForResource("DataModel", withExtension: "momd") else {
-            fatalError("Could not find data model in app bundle")
+            fatalError("Could not find data data model in app bundle")
         }
         
         guard let model = NSManagedObjectModel(contentsOfURL: modelURL) else {
@@ -40,6 +40,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        let tabBarController = window!.rootViewController as! UITabBarController
+        if let tabBarControllers = tabBarController.viewControllers {
+            let currentLocationViewController = tabBarControllers[0] as! CurrentLocationViewController
+            currentLocationViewController.managedObjectContext = managedObjectContext
+        }
         return true
     }
 
