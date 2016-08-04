@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		91112C3F1D531863009FAE4A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91112C3E1D531862009FAE4A /* MapKit.framework */; };
 		91326A3D1D4EB2E4007870FF /* LocationDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91326A3C1D4EB2E4007870FF /* LocationDetailsViewController.swift */; };
 		91F5AD2E1D49E0C000D94B3F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F5AD2D1D49E0C000D94B3F /* AppDelegate.swift */; };
 		91F5AD301D49E0C000D94B3F /* CurrentLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F5AD2F1D49E0C000D94B3F /* CurrentLocationViewController.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		91112C3E1D531862009FAE4A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		91326A3C1D4EB2E4007870FF /* LocationDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationDetailsViewController.swift; sourceTree = "<group>"; };
 		91F5AD2A1D49E0BF00D94B3F /* MyLocations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyLocations.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91F5AD2D1D49E0C000D94B3F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91112C3F1D531863009FAE4A /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,6 +59,7 @@
 		91F5AD211D49E0BE00D94B3F = {
 			isa = PBXGroup;
 			children = (
+				91112C3E1D531862009FAE4A /* MapKit.framework */,
 				91FDB0221D4F22B900053AA8 /* Location+CoreDataProperties.swift */,
 				91FDB0231D4F22B900053AA8 /* Location.swift */,
 				91F5AD2C1D49E0C000D94B3F /* MyLocations */,
