@@ -52,6 +52,7 @@ class LocationDetailsViewController: UITableViewController {
         if let location = locationToEdit {
             title = "Edit Location"
         }
+        
         decriptionTextView.text = descriptionText
         categoryLabel.text = ""
         latitudeLabel.text = String(format: "%.8f", coordinate.latitude)

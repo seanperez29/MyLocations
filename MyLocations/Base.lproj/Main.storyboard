@@ -379,7 +379,7 @@
         <!--Locations-->
         <scene sceneID="IaW-vb-D80">
             <objects>
-                <tableViewController title="Locations" id="KAf-TM-NBv" customClass="LocationsViewController" customModule="MyLocations" sceneMemberID="viewController">
+                <tableViewController id="KAf-TM-NBv" customClass="LocationsViewController" customModule="MyLocations" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="57" sectionHeaderHeight="28" sectionFooterHeight="28" id="JAX-ZT-nyx">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -420,7 +420,7 @@
                             <outlet property="delegate" destination="KAf-TM-NBv" id="f7m-wL-3BM"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="lk7-j2-a4T"/>
+                    <navigationItem key="navigationItem" title="Locations" id="lk7-j2-a4T"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pWZ-xZ-Xw9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
