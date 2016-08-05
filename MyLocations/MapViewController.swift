@@ -70,8 +70,41 @@ class MapViewController: UIViewController {
         }
         return mapView.regionThatFits(region)
     }
+    
+    func showLocationDetails(sender: UIButton) {
+        
+    }
 }
 
 extension MapViewController: MKMapViewDelegate {
+    
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+        guard annotation is Location else {
+            return nil
+        }
+        
+        let identifier = "Location"
+        var annotationView = mapView.dequeueReusableAnnotationViewWithIdentifier(identifier) as! MKPinAnnotationView!
+        if annotationView == nil {
+            annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            
+            annotationView.enabled = true
+            annotationView.canShowCallout = true
+            annotationView.animatesDrop = false
+            annotationView.tintColor = UIColor(red: 0.32, green: 0.84, blue: 0.4, alpha: 1)
+            
+            let rightButton = UIButton(type: .DetailDisclosure)
+            rightButton.addTarget(self, action: #selector(MapViewController.showLocationDetails), forControlEvents: .TouchUpInside)
+            annotationView.rightCalloutAccessoryView = rightButton
+        } else {
+            annotationView.annotation = annotation
+        }
+        
+        let button = annotationView.rightCalloutAccessoryView as! UIButton
+        if let index = locations.indexOf(annotation as! Location) {
+            button.tag = index
+        }
+        return annotationView
+    }
     
 }
