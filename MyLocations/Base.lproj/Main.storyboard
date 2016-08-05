@@ -86,7 +86,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="400" y="-303"/>
+            <point key="canvasLocation" x="208" y="-691"/>
         </scene>
         <!--Tag Location-->
         <scene sceneID="dmi-sl-Nkd">
@@ -295,7 +295,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qfh-0U-YxQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1489" y="-33"/>
+            <point key="canvasLocation" x="1523" y="2"/>
         </scene>
         <!--Category Picker View Controller-->
         <scene sceneID="Dac-hu-rkH">
@@ -307,14 +307,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="7sv-A8-uN1" style="IBUITableViewCellStyleDefault" id="qyQ-Lx-9rp">
-                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="92" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qyQ-Lx-9rp" id="6gf-7W-XDG">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7sv-A8-uN1">
-                                            <rect key="frame" x="15" y="0.0" width="290" height="43.5"/>
+                                            <rect key="frame" x="15" y="0.0" width="290" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -337,7 +337,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BTI-bR-99X" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="3IQ-vM-rHa" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1913" y="-33"/>
+            <point key="canvasLocation" x="1957" y="2"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -375,7 +375,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UP2-N5-F2z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1075" y="-33"/>
+            <point key="canvasLocation" x="1075" y="2"/>
         </scene>
         <!--Locations-->
         <scene sceneID="IaW-vb-D80">
@@ -425,7 +425,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pWZ-xZ-Xw9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="580" y="348"/>
+            <point key="canvasLocation" x="654" y="2"/>
         </scene>
         <!--Map-->
         <scene sceneID="ldk-7w-FXk">
@@ -466,11 +466,12 @@
                     <tabBarItem key="tabBarItem" title="Map" id="09V-f3-CNd"/>
                     <connections>
                         <outlet property="mapView" destination="lYm-av-BEH" id="HrV-YE-z6v"/>
+                        <segue destination="v4M-od-X8c" kind="modal" identifier="EditLocation" id="BZX-cc-5Rj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ceo-I2-w95" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-262" y="708"/>
+            <point key="canvasLocation" x="654" y="714"/>
         </scene>
         <!--Locations-->
         <scene sceneID="YJ7-rT-VNn">
@@ -487,13 +488,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q1Y-7D-Kuh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="202" y="348"/>
+            <point key="canvasLocation" x="208" y="2"/>
         </scene>
     </scenes>
     <resources>
         <image name="first" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="rWJ-2d-Scb"/>
+        <segue reference="BZX-cc-5Rj"/>
     </inferredMetricsTieBreakers>
 </document>

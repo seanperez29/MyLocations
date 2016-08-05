@@ -13,7 +13,15 @@ import MapKit
 
 class MapViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
-    var managedObjectContext: NSManagedObjectContext!
+    var managedObjectContext: NSManagedObjectContext! {
+        didSet {
+            NSNotificationCenter.defaultCenter().addObserverForName(NSManagedObjectContextObjectsDidChangeNotification, object: managedObjectContext, queue: NSOperationQueue.mainQueue()) { (notification) in
+                if self.isViewLoaded() {
+                    self.updateLocations()
+                }
+            }
+        }
+    }
     var locations = [Location]()
     
     override func viewDidLoad() {
@@ -72,7 +80,18 @@ class MapViewController: UIViewController {
     }
     
     func showLocationDetails(sender: UIButton) {
-        
+        performSegueWithIdentifier("EditLocation", sender: sender)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "EditLocation" {
+            let navigationController = segue.destinationViewController as! UINavigationController
+            let controller = navigationController.topViewController as! LocationDetailsViewController
+            controller.managedObjectContext = managedObjectContext
+            let button = sender as! UIButton
+            let location = locations[button.tag]
+            controller.locationToEdit = location
+        }
     }
 }
 
@@ -91,7 +110,7 @@ extension MapViewController: MKMapViewDelegate {
             annotationView.enabled = true
             annotationView.canShowCallout = true
             annotationView.animatesDrop = false
-            annotationView.tintColor = UIColor(red: 0.32, green: 0.84, blue: 0.4, alpha: 1)
+            annotationView.pinTintColor = UIColor(red: 0.32, green: 0.84, blue: 0.4, alpha: 1)
             
             let rightButton = UIButton(type: .DetailDisclosure)
             rightButton.addTarget(self, action: #selector(MapViewController.showLocationDetails), forControlEvents: .TouchUpInside)
