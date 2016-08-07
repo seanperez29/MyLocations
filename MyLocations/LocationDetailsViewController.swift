@@ -27,12 +27,25 @@ class LocationDetailsViewController: UITableViewController {
     @IBOutlet weak var longitudeLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var addPhotoLabel: UILabel!
     var coordinate = CLLocationCoordinate2D(latitude: 0, longitude: 0)
     var placemark: CLPlacemark?
     var categoryName = "No Category"
     var managedObjectContext: NSManagedObjectContext!
     var date = NSDate()
     var descriptionText = ""
+    var observer: AnyObject!
+    var image: UIImage? {
+        didSet {
+            if let image = image {
+                imageView.image = image
+                imageView.hidden = false
+                imageView.frame = CGRect(x: 10, y: 10, width: 260, height: 260)
+                addPhotoLabel.hidden = true
+            }
+        }
+    }
     var locationToEdit: Location? {
         didSet {
             if let location = locationToEdit {
@@ -48,6 +61,7 @@ class LocationDetailsViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        listenForBackgroundNotification()
         
         if let location = locationToEdit {
             title = "Edit Location"
@@ -69,6 +83,22 @@ class LocationDetailsViewController: UITableViewController {
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(LocationDetailsViewController.hideKeyboard))
         gestureRecognizer.cancelsTouchesInView = false
         tableView.addGestureRecognizer(gestureRecognizer)
+    }
+    
+    func listenForBackgroundNotification() {
+        observer = NSNotificationCenter.defaultCenter().addObserverForName(UIApplicationDidEnterBackgroundNotification, object: nil, queue: NSOperationQueue.mainQueue()) { [weak self] _ in
+            if let strongSelf = self {
+                if strongSelf.presentedViewController != nil {
+                    strongSelf.dismissViewControllerAnimated(false, completion: nil)
+                }
+                strongSelf.decriptionTextView.resignFirstResponder()
+            }
+        }
+    }
+    
+    deinit {
+        print("*** deinit \(self)")
+        NSNotificationCenter.defaultCenter().removeObserver(observer)
     }
     
     func hideKeyboard(gestureRecognizer: UIGestureRecognizer) {
@@ -105,6 +135,13 @@ class LocationDetailsViewController: UITableViewController {
     
     func formatDate(date: NSDate) -> String {
         return dateFormatter.stringFromDate(date)
+    }
+    
+    func showImage(image: UIImage) {
+        imageView.image = image
+        imageView.hidden = false
+        imageView.frame = CGRect(x: 10, y: 10, width: 260, height: 260)
+        addPhotoLabel.hidden = false
     }
     
     @IBAction func done() {
@@ -168,14 +205,17 @@ class LocationDetailsViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        if indexPath.section == 0 && indexPath.row == 0 {
+        switch (indexPath.section, indexPath.row) {
+        case (0,0):
             return 88
-        } else if indexPath.section == 2 && indexPath.row == 2 {
+        case (1,_):
+            return imageView.hidden ? 44 : 280
+        case (2,2):
             addressLabel.frame.size = CGSize(width: view.bounds.size.width - 115, height: 10000)
             addressLabel.sizeToFit()
             addressLabel.frame.origin.x = view.bounds.size.width - addressLabel.frame.size.width - 15
             return addressLabel.frame.size.height + 20
-        } else {
+        default:
             return 44
         }
     }
@@ -217,6 +257,11 @@ extension LocationDetailsViewController: UIImagePickerControllerDelegate, UINavi
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        image = info[UIImagePickerControllerEditedImage] as? UIImage
+        //if let image = image {
+        //    showImage(image)
+        //}
+        tableView.reloadData()
         dismissViewControllerAnimated(true, completion: nil)
     }
     
