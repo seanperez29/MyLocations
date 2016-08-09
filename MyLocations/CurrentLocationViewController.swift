@@ -11,6 +11,7 @@ import Foundation
 import CoreLocation
 import CoreData
 import QuartzCore
+import AudioToolbox
 
 class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate {
     
@@ -34,6 +35,7 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
     var timer: NSTimer?
     var managedObjectContext: NSManagedObjectContext!
     var logoVisible = false
+    var soundID: SystemSoundID = 0
     
     lazy var logoButton: UIButton = {
         let button = UIButton(type: .Custom)
@@ -96,6 +98,25 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
         logoButton.removeFromSuperview()
     }
     
+    func loadSoundEffect(name: String) {
+        if let path = NSBundle.mainBundle().pathForResource(name, ofType: nil) {
+            let fileURL = NSURL.fileURLWithPath(path, isDirectory: false)
+            let error = AudioServicesCreateSystemSoundID(fileURL, &soundID)
+            if error != kAudioServicesNoError {
+                print("Error code \(error) loading sound at path: \(path)")
+            }
+        }
+    }
+    
+    func unloadSoundEffect() {
+        AudioServicesDisposeSystemSoundID(soundID)
+        soundID = 0
+    }
+    
+    func playSoundEffect() {
+        AudioServicesPlayAlertSound(soundID)
+    }
+    
     @IBAction func getLocation() {
         print("getLocationTapped")
         let authStatus = CLLocationManager.authorizationStatus()
@@ -136,6 +157,7 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
         super.viewDidLoad()
         updateLabels()
         configureGetButton()
+        loadSoundEffect("Sound.caf")
     }
     
     // MARK: - CLLocationManagerDelegate
@@ -222,6 +244,10 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
                     print("*** Found placemarks: \(placemarks), error: \(error)")
                     self.lastLocationError = error
                     if error == nil, let p = placemarks where !p.isEmpty {
+                        if self.placemark == nil {
+                            print("FIRST TIME!")
+                            self.playSoundEffect()
+                        }
                         self.placemark = p.last!
                     } else {
                         self.placemark = nil
