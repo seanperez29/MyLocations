@@ -71,6 +71,7 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
         panelMover.fromValue = NSValue(CGPoint: containerView.center)
         panelMover.toValue = NSValue(CGPoint: CGPoint(x: centerX, y: containerView.center.y))
         panelMover.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+        panelMover.delegate = self
         containerView.layer.addAnimation(panelMover, forKey: "panelMover")
         let logoMover = CABasicAnimation(keyPath: "position")
         logoMover.removedOnCompletion = false
